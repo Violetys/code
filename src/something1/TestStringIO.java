@@ -10,7 +10,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.Set;
+
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 import org.hamcrest.core.Is;
 
@@ -40,6 +43,9 @@ public class TestStringIO {
       System.out.println(result2[0]+result2[1]+result2[2]);
       
       
+      Scanner s = new Scanner(System.in);
+  		String str=s.next();
+  		System.out.println(str);
       
      HashMap smap=new HashMap<>();
      int k=0;
@@ -71,5 +77,9 @@ public class TestStringIO {
 			}
 			System.out.println(k);
       
+			
+			
+			
+			
   }
 }
