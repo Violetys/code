@@ -5,7 +5,7 @@ import something1.Outer.Inner1;
 public class TestOuter {
 	public static void main(String[] args) {
 		Outer outer = new Outer();
-		//outer.Inner1 inner1 = outer.new Inner1();
+		Outer.Inner1 inner1 = outer.new Inner1();
 		
 		
 		/*方法外内部类加上static后就变成static nested class，在外面不需要创建外部类的实例对象

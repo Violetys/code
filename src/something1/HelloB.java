@@ -34,6 +34,8 @@ public class HelloB extends HelloA {
 	public static void main(String[] args) { 
 		System.out.println("main start");
 		System.out.println("5" + 2);		//输出52，Java会自动将2转换为字符串。
+//		String ss="6"+1;
+//		int i= Integer.parseInt(ss);
 		new HelloB(); 
 		System.out.println("main end");
 	}

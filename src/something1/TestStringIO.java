@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Stack;
 
 import javax.swing.plaf.synth.SynthSpinnerUI;
 
@@ -22,7 +23,7 @@ public class TestStringIO {
 
       String s1 = "Java";				//字符串常量池存在于堆中
       String s2 = "从0到1";
-      String s3 = s1 + s2;			//创建s3的时候会把S1,S2从字符串常量池复制到常量池以外的堆中然后创建S3
+      String s3 = s1 + s2;				//创建s3的时候会把S1,S2从字符串常量池复制到常量池以外的堆中然后创建S3
       String s4 = "Java从0到1";
 
       System.out.println(s3 == s4);		//常量池中没有这些对象的话，一共创建6个对象
@@ -42,15 +43,44 @@ public class TestStringIO {
       String [] result2 = s8.split(" ");
       System.out.println(result2[0]+result2[1]+result2[2]);
       
+      /*
+       * 翻转字符串，选择其中部分子串不翻转，例如abcgfedhijklmn，选择defg，输出nmlkjihdefgcba
+       * */
+      String str1="abcdefghijklmn";
+      String str11="defg";
+      int indexof=str1.indexOf(str11);					//indexof找出子串出现的位置
+      System.out.println(indexof);
+      Stack stack=new Stack();
+      for(int m=0;m<str1.length();m++) {
+    	  if(m<indexof||m>(indexof+3)) {
+    		  stack.push(str1.charAt(m));
+    		  System.out.print(stack.peek());			//peek()查看栈顶元素，不移除
+    	  }else {
+    		  stack.push(str11.charAt(6-m));
+    		  System.out.print(stack.peek());
+    	  }   	  
+      }
+      System.out.println();
+      while(!stack.isEmpty()) {							//输出栈中元素，后进先出
+    	  System.out.print(stack.pop());
+      }
       
+      
+   /*
+    * scanner赋值
+    * */   
       Scanner s = new Scanner(System.in);
-  		String str=s.next();
-  		System.out.println(str);
-      
+  		String str2=s.next();
+  		System.out.println(str2);
+  
+  		
+  	/*
+  	 * hashmap的使用
+  	 * */	
      HashMap smap=new HashMap<>();
      int k=0;
 			try {
-				FileInputStream fis=new FileInputStream("D:\\esendev\\gitrepos4.8\\code\\src\\something1\\File.txt");
+				FileInputStream fis=new FileInputStream("D:\\Repository\\code\\src\\something1\\File.txt");
 				try {					
 					InputStreamReader isr = new InputStreamReader(fis);
 					try {
@@ -70,7 +100,12 @@ public class TestStringIO {
 				}
 			} finally{				
 			}
-			Set set=smap.entrySet();		//entryset  key和value
+			//smap.put(1143448, "asda");
+			Set set=smap.entrySet();		//entryset   返回的是一个视图，当我们改变map的数据，set也会变。key和value
+			
+			set.add("sss");					//不能改变set
+			
+			smap.put(1143448, "asda");		//改变map数据  赵六覆盖
 			Iterator iterator=set.iterator();
 			for(;iterator.hasNext();) {
 				System.out.println(iterator.next());

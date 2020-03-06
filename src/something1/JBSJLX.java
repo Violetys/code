@@ -16,8 +16,8 @@ public class JBSJLX {
 		  int i=2<<3;
 		  int i1=2147483647+1;
 		  int i2=0b01111111111111111111111111111111;
-		  long l1=(long) 9223372036854775806L;  //加上L不然默认int
-		  System.out.println(i1);
+		  long l1=9223372036854775806L;  //加上L不然默认int
+		  System.out.println(i);
 		  System.out.println(i2);
 		  System.out.println(0x7fffffff);
 		  System.out.println(l1);

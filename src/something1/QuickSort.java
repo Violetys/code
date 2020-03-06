@@ -26,14 +26,12 @@ public void quick(int []arr,int low,int high) {
 	if(low < high) {
 		int mid = getMiddle(arr, low, high);
 		quick(arr, low, mid -1);
-		quick(arr, mid + 1, high);
-		
+		quick(arr, mid + 1, high);		
 	}
-
 }
 
 public static void main(String[]args) {
-	int [] arr = {49,49,38,38,38,49,38,65,26,76,13,27,52};
+	int [] arr = {5,6,2,3,1,6,7,9,4,10};
 	QuickSort quick = new QuickSort();
 	quick.quick(arr, 0, arr.length - 1);
 	for(int i = 0;i < arr.length;i++) {
